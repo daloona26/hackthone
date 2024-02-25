@@ -45,35 +45,35 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-# MIDDLEWARE = [
-#     'django.middleware.security.SecurityMiddleware',
-#     'django.contrib.sessions.middleware.SessionMiddleware',
-#     'django.middleware.common.CommonMiddleware',
-#     'django.middleware.csrf.CsrfViewMiddleware',
-#     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#     "corsheaders.middleware.CorsMiddleware",
-#     "django.middleware.common.CommonMiddleware",
-# ]
-
 MIDDLEWARE = [
-
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    
-    "corsheaders.middleware.CorsMiddleware",
-
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-
-    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
+
+# MIDDLEWARE = [
+
+
+#     'django.middleware.security.SecurityMiddleware',
+#     'django.contrib.sessions.middleware.SessionMiddleware',
+    
+#     "corsheaders.middleware.CorsMiddleware",
+
+#     "whitenoise.middleware.WhiteNoiseMiddleware",
+
+    
+#     'django.middleware.common.CommonMiddleware',
+#     'django.middleware.csrf.CsrfViewMiddleware',
+#     'django.contrib.auth.middleware.AuthenticationMiddleware',
+#     'django.contrib.messages.middleware.MessageMiddleware',
+#     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+# ]
 
 
 ROOT_URLCONF = 'codebattle.urls'
@@ -101,20 +101,25 @@ WSGI_APPLICATION = 'codebattle.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# from secrets import PG_DATABASE, PG_USER, PG_PASSWORD, PG_HOST, PG_PORT
+from secrets import PG_DATABASE, PG_USER, PG_PASSWORD, PG_HOST, PG_PORT
 import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('PGDATABASE'),
-        'USER':os.environ.get('PGUSER'),
-        'PASSWORD':os.environ.get('PGPASSWORD'),
-        'HOST':os.environ.get('PGHOST'),
-        'PORT':os.environ.get('PGPORT')
+        'NAME': PG_DATABASE,
+        'USER':PG_USER,
+        'PASSWORD':PG_PASSWORD,
+        'HOST':PG_HOST,
+        'PORT':PG_PORT
     }
 }
 
+# 'NAME': os.environ.get('PGDATABASE'),
+#         'USER':os.environ.get('PGUSER'),
+#         'PASSWORD':os.environ.get('PGPASSWORD'),
+#         'HOST':os.environ.get('PGHOST'),
+#         'PORT':os.environ.get('PGPORT')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
