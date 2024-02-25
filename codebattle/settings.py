@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-mrw396-g-lh4r%zi3!i&30t4#21w!6op6g-tbzwe$0uo^n*2en
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+ALLOWED_HOSTS = ['https://eventregister.up.railway.app/', '127.0.0.1', 'localhost']
+
 AUTH_USER_MODEL = 'base.User'
 
 ALLOWED_HOSTS = ['*']
@@ -112,6 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+   'https://eventregister.up.railway.app/'
+]
+
 
 
 # Internationalization
