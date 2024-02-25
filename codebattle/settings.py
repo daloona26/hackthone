@@ -101,16 +101,17 @@ WSGI_APPLICATION = 'codebattle.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-from secrets import PG_DATABASE, PG_USER, PG_PASSWORD, PG_HOST, PG_PORT
+# from secrets import PG_DATABASE, PG_USER, PG_PASSWORD, PG_HOST, PG_PORT
+import os
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': PG_DATABASE,
-        'USER': PG_USER,
-        'PASSWORD': PG_PASSWORD,
-        'HOST': PG_HOST,
-        'PORT': PG_PORT,
+        'NAME': os.environ.get('PGDATABASE'),
+        'USER':os.environ.get('PGUSER'),
+        'PASSWORD':os.environ.get('PGPASSWORD'),
+        'HOST':os.environ.get('PGHOST'),
+        'PORT':os.environ.get('PGPORT')
     }
 }
 
