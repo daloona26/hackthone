@@ -107,19 +107,19 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': PG_DATABASE,
-        'USER':PG_USER,
-        'PASSWORD':PG_PASSWORD,
-        'HOST':PG_HOST,
-        'PORT':PG_PORT
+        'NAME': os.environ.get('PGDATABASE'),
+        'USER':os.environ.get('PGUSER'),
+        'PASSWORD':os.environ.get('PGPASSWORD'),
+        'HOST':os.environ.get('PGHOST'),
+        'PORT':os.environ.get('PGPORT')
     }
 }
 
-# 'NAME': os.environ.get('PGDATABASE'),
-#         'USER':os.environ.get('PGUSER'),
-#         'PASSWORD':os.environ.get('PGPASSWORD'),
-#         'HOST':os.environ.get('PGHOST'),
-#         'PORT':os.environ.get('PGPORT')
+#    'NAME': PG_DATABASE,
+#         'USER':PG_USER,
+#         'PASSWORD':PG_PASSWORD,
+#         'HOST':PG_HOST,
+#         'PORT':PG_PORT
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
